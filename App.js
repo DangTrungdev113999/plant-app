@@ -1,19 +1,22 @@
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React from "react";
+import { StyleSheet, Text, View } from "react-native";
+import { ThemeProvider } from "styled-components";
+
+import theme from "./src/config/theme";
+
+import Block from "./src/components/Block";
+import Button from "./src/components/Button";
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-    </View>
+    <ThemeProvider theme={theme}>
+      <Block block center middle>
+        <Block w={50} h={50} bgColor="primary" shadow card />
+        <Block w={50} h={50} bgColor="tomato" m={[10, 20, 30, 40]} />
+        {/* <Button>
+          <Tex>button</Tex>
+        </Button> */}
+      </Block>
+    </ThemeProvider>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
