@@ -4,12 +4,12 @@ import styled from "styled-components";
 import { handleSpacing } from "../utils/index";
 
 const Text = styled.Text`
-  font-size: ${theme.typo.font}px;
+  font-size: ${({ theme }) => theme.typo.font}px;
   ${({ thin }) => thin && "font-weight: 100;"}
   ${({ light }) => light && "font-weight: 300;"}
   ${({ semibold }) => semibold && "font-weight: 500;"}
   ${({ bold }) => bold && "font-weight: 700;"}
-  ${({ extraBold }) => boextraBoldld && "font-weight: 900;"}
+  ${({ extraBold }) => extraBold && "font-weight: 900;"}
   ${({ weight }) => weight && `font-weight: ${+weight};`}
   ${({ m }) => m && `margin: ${handleSpacing(m)}px;`}
   ${({ mt }) => mt && `margin-top: ${mt}px;`}
@@ -26,7 +26,8 @@ const Text = styled.Text`
   ${({ pv }) => pv && `padding-vertical: ${pv}px;`}
   ${({ ph }) => ph && `padding-horizontal: ${ph}px;`}
   ${({ size }) => size && `font-size: ${size}px;`}
-  ${({ color }) => color && `color: ${color};`}
+  ${({ color, theme }) =>
+    theme.colors[color] ? `color: ${theme.colors[color]}` : `color: ${color}`}
   ${({ italic }) => italic && "font-style: italic;"}
   ${({ h1, theme }) =>
     h1 &&

@@ -1,11 +1,11 @@
 import React from "react";
+import { LinearGradient } from "expo-linear-gradient";
 import styled from "styled-components";
 
 import { handleSpacing } from "../utils/index";
-import LinearGradient from "./LinearGradient";
 import theme from "../config/theme";
 
-const TouchableOpacity = styled.TouchableOpacity`
+const LinearGradientStyled = styled(LinearGradient)`
   ${({ block }) => block && "flex: 1;"}
   ${({ flex }) => flex && `flex: ${flex};`}
   ${({ w }) => w && `width: ${w}px;`}
@@ -34,10 +34,6 @@ const TouchableOpacity = styled.TouchableOpacity`
   ${({ borderWidth }) => borderWidth && `border-width: ${borderWidth}px;`}
   ${({ borderColor }) => borderColor && `border-color: ${borderColor};`}
   ${({ borderRadius }) => borderRadius && `border-radius: ${borderRadius}px`}
-  ${({ bg, theme }) =>
-    theme.colors[bg]
-      ? `background-color: ${theme.colors[bg]}`
-      : `background-color: ${bg}`}
   ${({ row }) => row && `flex-direction: ${row};`}
   ${({ column }) => column && `flex-direction: ${column};`}
   ${({ center }) => center && "justify-content: center;"}
@@ -46,47 +42,26 @@ const TouchableOpacity = styled.TouchableOpacity`
     justifyContent && `justify-content: ${justifyContent}`}
   ${({ alignItems }) => alignItems && `align-items: ${alignItems};`}
   ${({ alignSelf }) => alignSelf && `align-self: ${alignSelf};`}
-  ${({ shadow, theme }) =>
-    shadow &&
-    `
-    box-shadow: 0px 2px 2px ${theme.colors.gray};
-    elevation: 2;
-  `}
   ${({ style }) => style && { ...style }}
 `;
 
-const Button = ({
-  opacity = 0.5,
-  gradient,
+export default ({
   colors,
-  start,
-  end,
-  locations,
+  start = { x: 0, y: 0 },
+  end = { x: 1, y: 1 },
+  locations = [0.1, 0.9],
   children,
-  shadow,
   ...props
 }) => {
-  if (gradient) {
-    return (
-      <TouchableOpacity activeOpacity={opacity} shadow={shadow}>
-        <LinearGradient
-          start={start}
-          end={end}
-          locations={locations}
-          colors={colors}
-          {...props}
-        >
-          {children}
-        </LinearGradient>
-      </TouchableOpacity>
-    );
-  }
-
   return (
-    <TouchableOpacity activeOpacity={opacity} shadow={shadow} {...props}>
+    <LinearGradientStyled
+      start={start}
+      end={end}
+      locations={locations}
+      colors={colors || [theme.colors.primary, theme.colors.secondary]}
+      {...props}
+    >
       {children}
-    </TouchableOpacity>
+    </LinearGradientStyled>
   );
 };
-
-export default Button;

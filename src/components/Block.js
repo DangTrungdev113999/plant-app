@@ -36,10 +36,10 @@ const Block = styled.View`
   ${({ borderWidth }) => borderWidth && `border-width: ${borderWidth}px;`}
   ${({ borderColor }) => borderColor && `border-color: ${borderColor};`}
   ${({ borderRadius }) => borderRadius && `border-radius: ${borderRadius}px`}
-  ${({ bgColor, theme }) =>
-    theme.colors[bgColor]
-      ? `background-color: ${theme.colors[bgColor]}`
-      : `background-color: ${bgColor}`}
+  ${({ bg, theme }) =>
+    theme.colors[bg]
+      ? `background-color: ${theme.colors[bg]}`
+      : `background-color: ${bg}`}
   ${({ row }) => row && `flex-direction: ${row};`}
   ${({ column }) => column && `flex-direction: ${column};`}
   ${({ center }) => center && "justify-content: center;"}
