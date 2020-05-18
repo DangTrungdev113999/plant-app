@@ -11,24 +11,18 @@ import Ionicons from "@expo/vector-icons//Ionicons";
 import Fontisto from "@expo/vector-icons/Fontisto";
 import EvilIcons from "@expo/vector-icons/EvilIcons";
 
-import { Block } from "./Block";
+import Block from "./Block";
 
 const Icon = ({
   size = 20,
   color = "#000",
   name = "slightly-smile",
-  bgColor,
+  bg,
   type = "iconicons",
-  ...rest
+  ...props
 }) => {
   return (
-    <Block
-      w={size}
-      h={size}
-      borderRadius={size / 2}
-      bgColor={bgColor}
-      {...rest}
-    >
+    <Block w={size} h={size} borderRadius={size / 2} bg={bg} {...props}>
       {type === "antDesign" && (
         <AntDesign name={name} size={size} color={color} />
       )}

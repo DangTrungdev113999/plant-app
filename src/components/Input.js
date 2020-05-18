@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { StyleSheet } from "react-native";
 import Block from "./Block";
+import Button from "./Button";
 import Icon from "./Icon";
 
 const TextInput = styled.TextInput.attrs(({ theme }) => ({
@@ -15,6 +16,7 @@ const TextInput = styled.TextInput.attrs(({ theme }) => ({
   color: ${({ theme }) => theme.colors.primary}; 
   height: ${({ theme }) => theme.typo.base * 3}px; 
   font-size: ${({ theme }) => theme.typo.font}px;
+  padding-horizontal: 10px;
   ${({ block }) => block && "flex: 1;"}
   ${({ flex }) => flex && `flex: ${flex};`}
   ${({ size }) => size && `font-size: ${size}px;`}
@@ -56,6 +58,8 @@ const Input = ({
   value,
   color,
   editable = true,
+  rightIcon,
+  onPressRightIcon,
   style,
   ...rest
 }) => {
@@ -69,9 +73,9 @@ const Input = ({
 
   const renderIconRight = () => {
     return (
-      <Block>
-        <Icon type="antDesign" name="eye" size={24} color="#000" />
-      </Block>
+      <Button absolute right={10} top={12} onPress={onPressRightIcon}>
+        {rightIcon}
+      </Button>
     );
   };
   return (
