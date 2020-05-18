@@ -26,13 +26,7 @@ const Block = styled.View`
   ${({ bottom }) => bottom && `bottom: ${bottom}px;`}
   ${({ right }) => right && `right: ${right}px;`}
   ${({ left }) => left && `right: ${left}px;`}
-  ${({ border, theme }) =>
-    border &&
-    `
-    border-width: 1px;
-    border-color: ${theme.colors.gray};
-  `}
-  ${({ card, theme }) => card && `border-radius: ${theme.typo.radius}px;`}
+  ${({ round, theme }) => round && `border-radius: ${theme.typo.radius}px;`}
   ${({ borderWidth }) => borderWidth && `border-width: ${borderWidth}px;`}
   ${({ borderColor }) => borderColor && `border-color: ${borderColor};`}
   ${({ borderRadius }) => borderRadius && `border-radius: ${borderRadius}px`}
