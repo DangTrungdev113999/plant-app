@@ -8,12 +8,12 @@ import {
   ScrollView,
 } from "react-native";
 
-import { Block, Text, Button } from "../components";
+import { Block, Text, Button } from "@components";
 
 const { width, height } = Dimensions.get("window");
 const scrollX = new Animated.Value(0);
 
-const Welcome = ({ illustrations }) => {
+const Welcome = ({ illustrations, navigation }) => {
   const [showTerms, setShowTerms] = useState(false);
 
   const showModal = () => setShowTerms(true);
@@ -173,12 +173,31 @@ const Welcome = ({ illustrations }) => {
       </Block>
 
       <Block middle flex={0.5} pv={20}>
-        <Button gradient shadow round w={280} h={50} center middle>
+        <Button
+          gradient
+          shadow
+          round
+          w={280}
+          h={50}
+          center
+          middle
+          onPress={() => navigation.navigate("login_screen")}
+        >
           <Text color="white" semibold h3>
             Login
           </Text>
         </Button>
-        <Button shadow round w={280} h={50} mt={20} bg="white" center middle>
+        <Button
+          shadow
+          round
+          w={280}
+          h={50}
+          mt={20}
+          bg="white"
+          center
+          middle
+          onPress={() => navigation.navigate("signUp_screen")}
+        >
           <Text semibold>Signup</Text>
         </Button>
         <Button center mt={20} onPress={showModal}>
