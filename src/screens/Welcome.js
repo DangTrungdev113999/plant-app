@@ -8,7 +8,7 @@ import {
   ScrollView,
 } from "react-native";
 
-import { Block, Text, Button } from "@components";
+import { Button, Block, Text } from "@components/index";
 
 const { width, height } = Dimensions.get("window");
 const scrollX = new Animated.Value(0);
@@ -213,9 +213,9 @@ const Welcome = ({ illustrations, navigation }) => {
 
 Welcome.defaultProps = {
   illustrations: [
-    { id: "1", source: require("../../assets/images/illustration_1.png") },
-    { id: "2", source: require("../../assets/images/illustration_2.png") },
-    { id: "3", source: require("../../assets/images/illustration_3.png") },
+    { id: "1", source: require("@assets/images/illustration_1.png") },
+    { id: "2", source: require("@assets/images/illustration_2.png") },
+    { id: "3", source: require("@assets/images/illustration_3.png") },
   ],
 };
 

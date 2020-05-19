@@ -1,10 +1,10 @@
 import React from "react";
 import { createStackNavigator } from "@react-navigation/stack";
 
-import BrowseScreen from "../screens/Browse";
-import ExploreScreen from "../screens/Explore";
-import ProductScreen from "../screens/Product";
-import SettingsScreen from "../screens/Settings";
+import BrowseScreen from "@screens/Browse";
+import ExploreScreen from "@screens/Explore";
+import ProductScreen from "@screens/Product";
+import SettingsScreen from "@screens/Settings";
 
 const Stack = createStackNavigator();
 

@@ -1,13 +1,13 @@
 import React from "react";
 import { createStackNavigator } from "@react-navigation/stack";
 
-import SignUpScreen from "../screens/SignUp";
-import LoginScreen from "../screens/Login";
-import ForgotScreen from "../screens/Forgot";
-import WelcomeScreen from "../screens/Welcome";
+import SignUpScreen from "@screens/SignUp";
+import LoginScreen from "@screens/Login";
+import ForgotScreen from "@screens/Forgot";
+import WelcomeScreen from "@screens/Welcome";
 
-import { Block, Text } from "./../components";
-import LeftIcon from "../components/header/LeftIcon";
+import { Block } from "@components";
+import LeftIcon from "@components/header/LeftIcon";
 import { navigationOptionCommon } from "./navigationOption";
 
 const Stack = createStackNavigator();

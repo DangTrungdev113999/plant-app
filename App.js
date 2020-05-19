@@ -1,9 +1,8 @@
 import React from "react";
 import { ThemeProvider } from "styled-components";
 
-import theme from "./src/config/theme";
-
-import Navigation from "./src/navigation/index";
+import Navigation from "@navigation";
+import theme from "@config/theme";
 
 export default function App() {
   return (
