@@ -1,3 +1,5 @@
+import React from "react";
+import { Animated } from "react-native";
 import styled from "styled-components";
 import { handleSpacing } from "../utils/index";
 
@@ -34,14 +36,15 @@ const Block = styled.View`
     theme.colors[bg]
       ? `background-color: ${theme.colors[bg]}`
       : `background-color: ${bg}`}
-  ${({ row }) => row && `flex-direction: ${row};`}
-  ${({ column }) => column && `flex-direction: ${column};`}
+  ${({ row }) => row && "flex-direction: row;"}
+  ${({ column }) => column && "flex-direction: column;"}
   ${({ center }) => center && "justify-content: center;"}
   ${({ middle }) => middle && "align-items: center;"}
   ${({ justifyContent }) =>
     justifyContent && `justify-content: ${justifyContent}`}
   ${({ alignItems }) => alignItems && `align-items: ${alignItems};`}
   ${({ alignSelf }) => alignSelf && `align-self: ${alignSelf};`}
+  ${({ opacity }) => opacity && `opacity: ${opacity};`}
   ${({ shadow, theme }) =>
     shadow &&
     `
@@ -51,4 +54,11 @@ const Block = styled.View`
   ${({ style }) => style && { ...style }}
 `;
 
-export default Block;
+export default ({ animated, children, ...props }) => {
+  if (animated) {
+    <Animated.View>
+      <Block {...props}>{children}</Block>
+    </Animated.View>;
+  }
+  return <Block {...props}>{children}</Block>;
+};

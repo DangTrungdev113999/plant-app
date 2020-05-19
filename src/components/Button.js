@@ -38,8 +38,8 @@ const TouchableOpacity = styled.TouchableOpacity`
     theme.colors[bg]
       ? `background-color: ${theme.colors[bg]}`
       : `background-color: ${bg}`}
-  ${({ row }) => row && `flex-direction: ${row};`}
-  ${({ column }) => column && `flex-direction: ${column};`}
+  ${({ row }) => row && "flex-direction: row;"}
+  ${({ column }) => column && "flex-direction: column;"}
   ${({ center }) => center && "justify-content: center;"}
   ${({ middle }) => middle && "align-items: center;"}
   ${({ justifyContent }) =>
@@ -49,7 +49,7 @@ const TouchableOpacity = styled.TouchableOpacity`
   ${({ shadow, theme }) =>
     shadow &&
     `
-    box-shadow: 0px 2px 2px ${theme.colors.gray};
+    box-shadow: 3px 3px 10px ${theme.colors.gray};
     elevation: 2;
   `}
   ${({ style }) => style && { ...style }}
@@ -64,11 +64,16 @@ const Button = ({
   locations,
   children,
   shadow,
+  onPress,
   ...props
 }) => {
   if (gradient) {
     return (
-      <TouchableOpacity activeOpacity={opacity} shadow={shadow}>
+      <TouchableOpacity
+        activeOpacity={opacity}
+        shadow={shadow}
+        onPress={onPress}
+      >
         <LinearGradient
           start={start}
           end={end}
@@ -83,7 +88,12 @@ const Button = ({
   }
 
   return (
-    <TouchableOpacity activeOpacity={opacity} shadow={shadow} {...props}>
+    <TouchableOpacity
+      activeOpacity={opacity}
+      shadow={shadow}
+      onPress={onPress}
+      {...props}
+    >
       {children}
     </TouchableOpacity>
   );

@@ -26,6 +26,7 @@ const Text = styled.Text`
   ${({ pv }) => pv && `padding-vertical: ${pv}px;`}
   ${({ ph }) => ph && `padding-horizontal: ${ph}px;`}
   ${({ size }) => size && `font-size: ${size}px;`}
+  ${({ height }) => height && `line-height: ${height}px;`}
   ${({ color, theme }) =>
     theme.colors[color] ? `color: ${theme.colors[color]}` : `color: ${color}`}
   ${({ italic }) => italic && "font-style: italic;"}
@@ -37,31 +38,31 @@ const Text = styled.Text`
   ${({ h2, theme }) =>
     h2 &&
     `
-    font-size: ${theme.typo.h1.size}px;
+    font-size: ${theme.typo.h2.size}px;
   `}
   ${({ h3, theme }) =>
     h3 &&
     `
-    font-size: 32px;
+    font-size: ${theme.typo.h3.size}px;
   `}
   ${({ p, theme }) =>
     p &&
     `
-    font-size: ${theme.typo.p}px;
+    font-size: ${theme.typo.p.size}px;
   `}
   ${({ body, theme }) =>
     body &&
     `
-    font-size: ${theme.typo.body}px;
+    font-size: ${theme.typo.body.size}px;
   `}
   ${({ caption, theme }) =>
     caption &&
     `
-    font-size: ${theme.typo.caption}px;
+    font-size: ${theme.typo.caption.size}px;
   `}
   ${({ center }) =>
     center &&
-    `
+    `s
     text-align: center;
   `}
   ${({ right }) =>
